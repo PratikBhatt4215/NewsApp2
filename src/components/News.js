@@ -38,8 +38,6 @@ const News = (props) => {
 
     }, [])
 
-
-
     const fetchMoreData = async () => {
 
         const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page + 1}&pageSize=${props.pageSize}`;
@@ -52,7 +50,7 @@ const News = (props) => {
     }
     return (
         <>
-            <h1 className="text-center text-danger" style={{ margin: '35px', marginTop: '90px' }}>Top  {capitalizeFirstLetter(props.category)} Headlines </h1>
+            <h1 className="text-center " style={{ margin: '35px', marginTop: '90px' }}>Top <span className='text-danger'>  {capitalizeFirstLetter(props.category)} </span> Headlines </h1>
             {loading && <Loading />}
             <InfiniteScroll
                 dataLength={articles.length}
